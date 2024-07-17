@@ -1,14 +1,13 @@
 .friendMessage {
-	margin-left: auto;
+	margin-right: auto;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: flex-start;
 }
 
 .friendImageAndText {
 	display: flex;
 	align-items: flex-end;
-	flex-direction: row-reverse;
 }
 
 .friendImageAndText img {
