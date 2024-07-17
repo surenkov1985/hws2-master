@@ -1,13 +1,19 @@
 .message {
-
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .imageAndText {
-
+	display: flex;
+	align-items: flex-end;
 }
 
 .imageAndText img {
-
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50% ;
+	object-fit: cover;
 }
 
 .text {
