@@ -10,6 +10,11 @@
 .hw {
     border-top: 1px solid #D9D9D9;
     border-bottom: 1px solid #D9D9D9;
+    padding: 1.5rem 70px 2rem;
+    min-height: 336px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
 .hw1 {
     margin-top: 130px;
@@ -17,6 +22,7 @@
 .hwContainer {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 .hwTitle {
     height: var(--header_height);
@@ -25,4 +31,5 @@
     line-height: 1.2;
     display: flex;
     align-items: center;
+    padding: 0 70px;
 }
