@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import s from './Stand.module.css'
 import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
@@ -10,6 +10,28 @@ const Stand = () => {
 
     const [stateForAllCheckboxes, setChecked] = useState<boolean>(false)
 
+    const onEnterHandler = () => {
+        setError(
+            stateForAllInputs.trim()
+                ? ''
+                : 'Error'
+        )
+        setValue('')
+    }
+
+    const onKeypressHandler = (e:  KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            onEnterHandler()
+        }
+    }
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+        setError('')
+    }
+    const onChangeTextHandler = (value:string) => {
+        setValue(value)
+        setError('')
+    }
     return (
         <div id={'hw4-stand'} className={s.stand}>
             <div className={s.inputs}>
@@ -18,7 +40,8 @@ const Stand = () => {
                     <SuperInputText
                         id={'hw4-super-input-like-old'}
                         value={stateForAllInputs}
-                        onChange={(e) => setValue(e.currentTarget.value)}
+                        onChange={onChangeHandler}
+                        onKeyPress={onKeypressHandler}
                     />
                 </div>
                 {/*инпут с ошибкой:*/}
@@ -26,16 +49,9 @@ const Stand = () => {
                     <SuperInputText
                         id={'hw4-super-input-with-error'}
                         value={stateForAllInputs}
-                        onChangeText={setValue}
+                        onChangeText={onChangeTextHandler}
                         error={error}
-                        onEnter={() => {
-                            setError(
-                                stateForAllInputs.trim()
-                                    ? ''
-                                    : 'Error'
-                            )
-                            setValue('')
-                        }}
+                        onEnter={onEnterHandler}
                     />
                 </div>
             </div>
